@@ -18,4 +18,4 @@ Memory is an instance of a C# ArrayList the push/pop logic is controlled by the 
 There is also a separate Array contained within memory allocated to load and serve programs from. The CPU can fetch instructions directly from this allocation.
 
 ## Program
-A program is an array of Instructions and it can be loaded 
+A program is an array of Instructions and it can be loaded into memory via a utility function
