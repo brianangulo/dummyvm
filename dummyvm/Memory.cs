@@ -3,16 +3,24 @@ using System.Collections;
 namespace dummyvm
 {
     /// <summary>
-    /// Abstraction over am Array to simulate memory
+    /// Abstraction over am Array to simulate memory it should only contain integers within itself and a space for programs
     /// </summary>
     public class Memory: ArrayList
     {
+        // program in memory
+        private Instruction[] program = new Instruction[] { new Instruction(Opcodes.HALT, 0) };
+        /// <summary>
+        /// Constructor initializes with custom initial mem size
+        /// </summary>
+        /// <param name="initialMemSize"></param>
         public Memory(int initialMemSize)
             : base(initialMemSize)
         {
             
         }
-
+        /// <summary>
+        /// Constructing without specific initial memory allocation
+        /// </summary>
         public Memory()
             : base()
         {
@@ -36,10 +44,25 @@ namespace dummyvm
         /// <param name="program"></param>
         public void LoadProgram(Instruction[] program)
         {
-            foreach(Instruction instruction in program)
-            {
-                Add(instruction);
-            }
+            this.program = program;
+        }
+
+        /// <summary>
+        /// Clears program
+        /// </summary>
+        public void ClearProgram()
+        {
+            program = new Instruction[] { new Instruction(Opcodes.HALT, 0) };
+        }
+
+        /// <summary>
+        /// Takes in index and return program instruction
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Instruction FetchProgramInstruction(int index)
+        {
+                return program[index];
         }
 
         /// <summary>

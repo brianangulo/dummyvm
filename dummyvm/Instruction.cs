@@ -12,6 +12,14 @@ namespace dummyvm
             this.data = data;
         }
 
+        /// <summary>
+        /// Only to be used with halt or print instructions
+        /// </summary>
+        public Instruction(Opcodes opcode)
+        {
+            this.opcode = opcode;
+        }
+
         public Opcodes GetOpcode()
         {
             return opcode;
